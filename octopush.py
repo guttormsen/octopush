@@ -23,12 +23,19 @@ phone_label.grid(row=2, column=0, padx=5, pady=5)
 phone_entry = tk.Text(window, height=5, width=20)
 phone_entry.grid(row=2, column=1, padx=5, pady=5)
 
+# Create the sender ID input field
+sender_label = tk.Label(window, text='Sender ID:')
+sender_label.grid(row=3, column=0, padx=5, pady=5)
+sender_entry = tk.Entry(window)
+sender_entry.grid(row=3, column=1, padx=5, pady=5)
+
 # Create the send button function
 def send_sms():
-    # Get the API key, message, and phone numbers from the input fields
+    # Get the API key, message, phone numbers, and sender ID from the input fields
     api_key = api_key_entry.get()
     message = message_entry.get()
     phone_numbers = phone_entry.get("1.0", tk.END).strip().split()
+    sender_id = sender_entry.get()
 
     # Set the URL for the API endpoint
     url = 'https://api.octopush.com/1/sms/send'
@@ -40,7 +47,8 @@ def send_sms():
             'key': api_key,
             'sms_text': message,
             'sms_recipients': '+{}'.format(number),
-            'sms_type': 'FR'
+            'sms_type': 'FR',
+            'sms_sender': sender_id
         }
 
         # Send the HTTP POST request to the API endpoint
@@ -54,7 +62,7 @@ def send_sms():
 
 # Create the send button
 send_button = tk.Button(window, text='Send', command=send_sms)
-send_button.grid(row=3, column=0, columnspan=2, padx=5, pady=5)
+send_button.grid(row=4, column=0, columnspan=2, padx=5, pady=5)
 
 # Run the main loop
 window.mainloop()
