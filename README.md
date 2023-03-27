@@ -1,3 +1,10 @@
+Octopush sms sender gui, with api numbers messages and sender id
+
+
+
+
+
+
 cd octopush
 
 
