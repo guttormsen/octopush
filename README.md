@@ -1,14 +1,15 @@
-Octopush sms sender gui, with api numbers messages and sender id
+Octopush Landing Interface
+==========================
 
+A simple Tkinter application that presents a landing view with large cards for
+navigating to different features such as Kunnskapsbase, Lover, Notater,
+Kalkulatorer, Logikkimport, Q&A and Globalt Søk. Each card opens a pane
+representing the chosen feature.
 
+### Running
 
+No external dependencies are required. To start the application run:
 
-
-
-cd octopush
-
-
-pip install -r requirements.txt
-
-
-py octopush.py
+```
+python octopush.py
+```
